@@ -32,9 +32,7 @@ class UserController extends Controller
         */
 
         //coba akses model UserModel
-        $user = UserModel::findOr(20,['username', 'nama'], function(){
-            abort(404);
-        }); //ambil semua data dari tabel m_user
+        $user = UserModel::where('username','manager9')->firstOrFail(); //ambil semua data dari tabel m_user
         return view('user', ['data' => $user]);
     }
 }
