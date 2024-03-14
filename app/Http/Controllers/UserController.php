@@ -8,7 +8,14 @@ class UserController extends Controller
 {
     public function index()
     {
-
+        $user = UserModel::firstOrCreate(
+            [
+                'username' => 'manager33',
+                'nama' => 'Manager Tiga Tiga',
+                'password' => Hash::make('12345'),
+                'level_id' => 2
+            ],
+        );
        /*
         //tambah data user dengan eloquent model
         $data = 
@@ -32,8 +39,9 @@ class UserController extends Controller
         */
 
         //coba akses model UserModel
-        $user = UserModel::where('level_id',2)->count();
+        //$user = UserModel::where('level_id',2)->count();
         //dd($user);//ambil semua data dari tabel m_user
+        $user->save();
         return view('user', ['data' => $user]);
     }
 }
