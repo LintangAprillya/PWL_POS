@@ -32,7 +32,8 @@ class UserController extends Controller
         */
 
         //coba akses model UserModel
-        $user = UserModel::where('username','manager9')->firstOrFail(); //ambil semua data dari tabel m_user
+        $user = UserModel::where('level_id',2)->count();
+        //dd($user);//ambil semua data dari tabel m_user
         return view('user', ['data' => $user]);
     }
 }
