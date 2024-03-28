@@ -21,30 +21,10 @@ class KategoriDataTable extends DataTable
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
-        /*return (new EloquentDataTable($query))
-            ->addColumn('action', function ($data) {
-                return '<a href="kategori/edit/' . $data->kategori_id . '" class="btn btn-sm btn-primary mr-1">
-                <i class="bi bi-pencil-square"></i>
-                </a>
-
-                <form action="kategori/delete/{{ $data->kategori_id }}" method="POST" style="display:inline">
-                    ' . csrf_field() . '
-                    ' . method_field('DELETE') . '
-                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm(\'Are you sure you want to delete this item?\')"><i class="fas fa-trash"></i></button>
-                  </form>';
-            })
-            ->setRowId('id');*/
         return (new EloquentDataTable($query))
-            ->addColumn('action', function ($data) {
-                return '<a href="kategori/edit/' . $data->kategori_id . '" class="btn btn-sm btn-primary mr-1">
-                    <i class="fas fa-edit"></i>
-                    </a>
-
-                    <form action="kategori/delete/' . $data->kategori_id . '" method="POST" style="display:inline">
-                        ' . csrf_field() . '
-                        ' . method_field('DELETE') . '
-                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm(\'Are you sure you want to delete this item?\')"><i class="fas fa-trash"></i></button>
-                    </form>';
+            ->addColumn('action', function ($row) {
+                return '<a href="' . route('kategori.edit', $row->kategori_id)  . '"class="btn btn-warning ">Edit</a>
+                        <a href="' . route('kategori.delete', $row->kategori_id) . '"class="btn btn-danger ">Delete</a>';
             })
             ->setRowId('id');
     }
@@ -74,7 +54,9 @@ class KategoriDataTable extends DataTable
                 Button::make('csv'),
                 Button::make('pdf'),
                 Button::make('print'),
-                Button::make('reset'), Button::make('reload')
+                Button::make('reset'),
+                Button::make('reload'),
+                Button::make('add')->text(' + Add')->action('window.location.href = "' . route('category.create') . '"'),
             ]);
     }
 
@@ -85,17 +67,20 @@ class KategoriDataTable extends DataTable
     {
         return [
             /*	Column::computed('action')
-            ->exportable(false)
-            ->printable(false)
-            ->width(60)
-            ->addClass('text-center'), */
-            Column::make('kategori_id'), Column::make('kategori_kode'), Column::make('kategori_nama'), Column::make('created_at'), Column::make('updated_at'),
+    ->exportable(false)
+    ->printable(false)
+    ->width(60)
+    ->addClass('text-center'), */
+            Column::make('kategori_id'),
+            Column::make('kategori_kode'),
+            Column::make('kategori_nama'),
+            Column::make('created_at'),
+            Column::make('updated_at'),
             Column::computed('action')
-                ->title('Action')
                 ->exportable(false)
                 ->printable(false)
-                ->width(60)
-                ->addClass('text-center')
+                ->width(150)
+                ->addClass('text-center'),
         ];
     }
 

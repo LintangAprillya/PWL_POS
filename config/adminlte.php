@@ -322,12 +322,11 @@ return [
             'label' => 4,
             'label_color' => 'success',
         ],
-        // Tugas no 2 - P5
-        ['header' => 'MENU'],
         [
-            'text' => 'Categories',
-            'url' => 'kategori',
-            'icon' => 'fas fa-solid fa-list',
+            'text' => 'Manage Kategori',
+            'url' => '/kategori',
+            'icon' => 'fas fa-fw fa-folder',
+            'label_color' => 'success',
         ],
         ['header' => 'account_settings'],
         [

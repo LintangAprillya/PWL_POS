@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('m_barang', function (Blueprint $table) {
             $table->id('barang_id');
-            $table->unsignedBigInteger('kategori_id')->index();//indexing untuk foreignkey
-            $table->string('barang_kode', 10)->unique;
+            $table->unsignedBigInteger('kategori_id')->index();
+            $table->string('barang_kode', 10);
             $table->string('barang_nama', 100);
             $table->integer('harga_beli');
             $table->integer('harga_jual');
@@ -29,8 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('m_barang', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('m_barang');
     }
 };

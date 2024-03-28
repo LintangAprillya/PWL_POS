@@ -12,8 +12,5 @@ class LevelModel extends Model
     protected $table = 'm_level'; //mendefinisikan nama tabel yg digunakan oleh model
     protected $primaryKey = 'level_id'; //mendefinisikan primary key dr tabel yg digunakan
 
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(UserModel::class);
-    }
+    protected $guarded = [];
 }
