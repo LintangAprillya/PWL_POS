@@ -1,35 +1,53 @@
-@extends('adminlte::page')
-
-@section('title', 'Dashboard')
-
-@section('content_header')
-    <h1>Dashboard</h1>
-@stop
+@extends('layouts.template')
 
 @section('content')
-    <div class="card-body">
-        <form>
-            <div class="row">
-                <div class="col-sm-6">
-                    <!-- text input -->
-                    <div class="form-group">
-                        <label>Level id</label>
-                        <input type="text" class="form-control" placeholder="id">
+
+<style>
+    /* Custom CSS untuk latar belakang biru dongker */
+    .custom-background {
+        background-color: #1a1a2e; /* Warna biru dongker */
+        color: #fff; /* Warna teks putih untuk kontras */
+        padding: 20px; /* Padding untuk memberikan ruang antara elemen */
+        border-radius: 10px; /* Border radius untuk membuat sudut elemen menjadi sedikit melengkung */
+    }
+
+    /* Style untuk judul utama */
+    .main-title {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #ff9500; /* Warna kuning untuk judul */
+    }
+
+    /* Style untuk teks penjelasan */
+    .description {
+        font-size: 18px;
+        text-align: center;
+        color: #8bbe00; /* Warna hijau matcha untuk deskripsi */
+    }
+
+    /* Style untuk informasi penulis */
+    .author-info {
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card custom-background"> <!-- Menambahkan kelas custom-background untuk latar belakang -->
+                <div class="card-body">
+                    <h3 class="main-title">Selamat Datang di Website Percobaan AdminLTE</h3>
+                    <p class="description">Mohon maaf jika masih ada banyak kekurangan :)</p>
+                    <div class="author-info">
+                        <p>Dibuat oleh: Lintang Aprillya Sari</p>
+                        <p>NIM: 2241720231</p>
                     </div>
-                    <button type="submit" class="btn btn-info">Submit</button>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
-@stop
-
-@section('css')
-    {{-- Add extra stylesheets here --}}
-    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
-@stop
-
-@section('js')
-    <script>
-        console.log("Hi, I'm using the Laravel-AdminLTE package!");
-    </script>
-@stop
+</div>
+@endsection
