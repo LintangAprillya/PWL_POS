@@ -43,7 +43,6 @@
 @endpush
 @push('js')
 @endpush
-
 {{-- @extends('adminlte::page')
 @section('title', 'Level')
 @section('content_header')

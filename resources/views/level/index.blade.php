@@ -94,9 +94,6 @@
     </script>
 @endpush
 
-
-
-
 {{-- @extends('layouts.app') --}}
 
 {{-- Customize layout sections --}}

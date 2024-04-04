@@ -52,8 +52,6 @@
 @push('js')
 @endpush
 
-
-
 {{-- @extends('adminlte::page')
 @section('title', 'level')
 @section('content_header')
