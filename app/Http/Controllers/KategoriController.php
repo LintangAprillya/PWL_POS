@@ -76,7 +76,7 @@ class KategoriController extends Controller
         // ]);
         $request->validate([
 
-            'kategori_kode' => 'bail|required|unique:m_kategoris|max:255',
+            'kategori_kode' => 'bail|required|unique:m_kategori|max:255',
             'kategori_nama' => 'bail|required|max:255',
 
         ]);
@@ -128,9 +128,9 @@ class KategoriController extends Controller
     {
         $request->validate([
             //kategori kode harus didisi, berupa string, minimal 3 karakter,
-            //dan bernilai unik ditabel m_kategoris kolom kategori kecuali untuk katgeori dengan id yang sedang diedit
+            //dan bernilai unik ditabel m_kategori kolom kategori kecuali untuk katgeori dengan id yang sedang diedit
             'kategori_kode' => 'bail|required|max:255',
-            'kategori_nama' => 'bail|required|unique:m_kategoris|max:255',
+            'kategori_nama' => 'bail|required|unique:m_kategori|max:255',
         ]);
 
         KategoriModel::find($id)->update([
@@ -194,21 +194,21 @@ class KategoriController extends Controller
 
 // ];
 
-// DB::table('m_kategoris')->insert($data);
+// DB::table('m_kategori')->insert($data);
 // return 'insert data baru berhasil';
 
 
-// $row = DB::table('m_kategoris')->where('kategori_kode', 'SNK')->update(['kategori_nama' => 'camilan']);
+// $row = DB::table('m_kategori')->where('kategori_kode', 'SNK')->update(['kategori_nama' => 'camilan']);
 // return 'Update data berhasil. Jumlah data yang diupdate : ' . $row . 'baris';
 
-// $row = DB::table('m_kategoris')->where('kategori_kode', 'SNK')->delete();
+// $row = DB::table('m_kategori')->where('kategori_kode', 'SNK')->delete();
 // return 'delete data berhasil. Jumlah data yang di delete : ' . $row . 'baris';
 
 
 
 //----menampilkan data yang ada di table m_kategori-----
 
-//         $data = DB::table('m_kategoris')->get();
+//         $data = DB::table('m_kategori')->get();
 //         return view('kategori', ['data' => $data]);
 
 

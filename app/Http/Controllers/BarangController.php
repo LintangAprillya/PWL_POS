@@ -29,13 +29,13 @@ class BarangController extends Controller
     // Ambil data barang dalam bentuk json untuk datatables 
     public function list(Request $request)
     {
-        $barangs = BarangModel::select('barang_id', 'kategori_id', 'barang_kode', 'barang_nama', 'harga_beli', 'harga_jual')->with('kategori');
+        $barang = BarangModel::select('barang_id', 'kategori_id', 'barang_kode', 'barang_nama', 'harga_beli', 'harga_jual')->with('kategori');
 
         //Filter data barang berdasarkan level_id
         if ($request->kategori_id) {
-            $barangs->where('kategori_id', $request->kategori_id);
+            $barang->where('kategori_id', $request->kategori_id);
         }
-        return DataTables::of($barangs)
+        return DataTables::of($barang)
             ->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex)
             ->addColumn('aksi', function ($barang) { // menambahkan kolom aksi
                 $btn = '<a href="' . url('/barang/' . $barang->barang_id) . '" class="btn btn-info btn-sm">Detail</a> ';
@@ -67,7 +67,7 @@ class BarangController extends Controller
     {
         $request->validate([
             'barang_kode' => 'required|string|max:10',
-            'barang_nama' => 'required|string|max:100|unique:m_barangs,barang_nama',
+            'barang_nama' => 'required|string|max:100|unique:m_barang,barang_nama',
             'harga_beli' => 'required|integer',
             'harga_jual' => 'required|integer',
             'kategori_id' => 'required|integer'
@@ -137,7 +137,7 @@ class BarangController extends Controller
     {
         $request->validate([
             'barang_kode' => 'required|string|max:10',
-            'barang_nama' => 'required|string|max:100|unique:m_barangs,barang_nama',
+            'barang_nama' => 'required|string|max:100|unique:m_barang,barang_nama',
             'harga_beli' => 'required|integer',
             'harga_jual' => 'required|integer',
             'kategori_id' => 'required|integer'
