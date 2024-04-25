@@ -178,7 +178,7 @@ class KategoriController extends Controller
         } catch (\Illuminate\Database\QueryException $e) {
 
             //Jika terjadi error ketika menghapus data, redirect kembali ke halaman dengan membawa pesan error
-            return redirect('/kategori')->with('error', 'Data gagal dihapus karena masih terdapat tabel lain yang terkai dengan data ini');
+            return redirect('/kategori')->with('error', 'Data gagal dihapus karena masih terdapat tabel lain yang terkait dengan data ini');
         }
     }
 
