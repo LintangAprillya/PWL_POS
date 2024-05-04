@@ -18,11 +18,9 @@ use App\Http\Controllers\Api\KategoriController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
 Route::post('/register', App\Http\Controllers\Api\RegisterController::class)->name('register');
 Route::post('/login', App\Http\Controllers\Api\LoginController::class)->name('login');
-
-Route::post('/register', App\Http\Controllers\Api\RegisterController::class)->name('register');
+Route::post('/logout', App\Http\Controllers\Api\LogoutController::class)->name('logout');
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
